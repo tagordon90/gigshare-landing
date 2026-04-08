@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GigShare — Continue Stripe setup</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0f172a; color: #e2e8f0; }
+    .card { max-width: 640px; padding: 32px; text-align: center; }
+    h1 { margin-bottom: 12px; font-size: 1.35rem; }
+    p { line-height: 1.6; color: #cbd5e1; }
+    a { color: #38bdf8; }
+    .btn { display: inline-block; margin-top: 20px; padding: 12px 24px; background: #38bdf8; color: #0f172a; text-decoration: none; font-weight: 600; border-radius: 8px; }
+    .btn:hover { filter: brightness(1.05); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Continue in the GigShare app</h1>
+    <p>This Stripe link expired or needs a fresh start. Open GigShare, go to your live gig’s payout settings, and tap <strong>Open Stripe Connect onboarding</strong> again.</p>
+    <p><a class="btn" id="open-app" href="gigsharemobile://stripe-connect/refresh">Open GigShare</a></p>
+  </main>
+  <script>
+    (function () {
+      var deep = "gigsharemobile://stripe-connect/refresh";
+      try {
+        window.location.replace(deep);
+      } catch (e) {}
+      document.getElementById("open-app").addEventListener("click", function () {
+        window.location.href = deep;
+      });
+    })();
+  </script>
+</body>
+</html>
